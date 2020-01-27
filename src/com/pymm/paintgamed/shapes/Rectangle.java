@@ -5,7 +5,6 @@ import javafx.scene.paint.Paint;
 
 
 public class Rectangle extends Shape {
-    private Paint color;
     public static final int WIDTH = 100, HEIGHT = 50;
 
     @Override
@@ -18,11 +17,7 @@ public class Rectangle extends Shape {
 
     @Override
     public void update(Paint color) {
-        this.color = color;
-    }
-
-    public void setColor(Paint color){
-        update(color);
+        setColor(color);
     }
 
 }
