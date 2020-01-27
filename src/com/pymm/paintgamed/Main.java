@@ -38,6 +38,7 @@ public class Main extends Application {
     List<Shape> shapes = new ArrayList<>();
     Stack<Command> commandsToUndo = new Stack<>();
     Stack<Command> commandsToRedo = new Stack<>();
+    ShapeFactory shapeFactory = ShapeFactory.getInstance();
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -46,7 +47,7 @@ public class Main extends Application {
         gc.setLineWidth(1);
 
         scene.setOnMousePressed(event -> {
-            Shape shape = ShapeFactory.getInstance().createShape((String) choiceBox.getValue(), event.getSceneX(),
+            Shape shape = shapeFactory.createShape((String) choiceBox.getValue(), event.getSceneX(),
                     event.getSceneY(), colorPicker.getValue());
             shape.draw(gc);
             Command command = new AddShapeCommand(shapes, shape);
